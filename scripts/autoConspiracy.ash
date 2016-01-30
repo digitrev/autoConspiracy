@@ -254,7 +254,7 @@ void ControlPanel(){
 		return;
 	}
 	int ret = 7;
-	for each i in $ints[9,2,4,6,8,1,3,5,7]{
+	foreach i in $ints[9,2,4,6,8,1,3,5,7]{
 		if (!get_property("controlPanel" + i).to_boolean()){
 			ret = i;
 			break;
