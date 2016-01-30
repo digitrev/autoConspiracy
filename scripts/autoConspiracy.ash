@@ -275,6 +275,7 @@ void ControlPanel(){
 
 void main()
 {
+	ControlPanel();
 	try
 	{
 		// Save equipment and familiar state
