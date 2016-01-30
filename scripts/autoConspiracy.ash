@@ -253,12 +253,22 @@ void ControlPanel(){
 		run_choice(10);
 		return;
 	}
-	boolean[string] settings = $strings[Thermostat setting: CONSTANT MUTAGEN SPRAY, Re-enactment supply closet: UNLOCKED, Assmble-a-Bear kiosks: OPEN, Monkey food safety protocols: FLAUNTED, π sleep-hypnosis generators: ON, ALl-Ranchero FM station: COMPULSORY, Simian Ludovico Wednesdays: SCHEDULED, Shampoo Dispensers: CHILD-HOSTILE, Training algorithm: BROTHER V. BROTHER];
-	int ret = 0;
-	foreach str in settings{
-		ret += 1;
-		if (!ControlPanel.contains_text(str))
+	boolean[string, int] settings;
+	settings['Thermostat setting: CONSTANT MUTAGEN SPRAY', 9] = true;
+	settings['Re-enactment supply closet: UNLOCKED', 8] = true;
+	settings['Assmble-a-Bear kiosks: OPEN', 6] = true;
+	settings['Monkey food safety protocols: FLAUNTED', 4] = true;
+	settings['π sleep-hypnosis generators: ON', 2] = true;
+	settings['ALl-Ranchero FM station: COMPULSORY', 1] = true;
+	settings['Simian Ludovico Wednesdays: SCHEDULED', 3] = true;
+	settings['Shampoo Dispensers: CHILD-HOSTILE', 5] = true;
+	settings['Training algorithm: BROTHER V. BROTHER]', 7] = true;
+	int ret = 7;
+	foreach str, i in settings{
+		if (!ControlPanel.contains_text(str)){
+			ret = i;
 			break;
+		}
 	}
 	run_choice(ret);
 }
