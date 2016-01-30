@@ -247,6 +247,20 @@ void finishQuest(location place)
 	}
 }
 
+void ControlPanel(){
+	if (get_property("controlPanelOmega").to_int() >= 100)
+		return 10;
+	string ControlPanel = visit_url("place.php?whichplace=airport_spooky_bunker&action=si_controlpanel");
+	boolean[string] settings = $strings[Thermostat setting: CONSTANT MUTAGEN SPRAY, Re-enactment supply closet: UNLOCKED, Assmble-a-Bear kiosks: OPEN, Monkey food safety protocols: FLAUNTED, π sleep-hypnosis generators: ON, ALl-Ranchero FM station: COMPULSORY, Simian Ludovico Wednesdays: SCHEDULED, Shampoo Dispensers: CHILD-HOSTILE, Training algorithm: BROTHER V. BROTHER];
+	int ret = 0;
+	foreach str in settings{
+		ret += 1;
+		if (!ControlPanel.contains_text(str))
+			break;
+	}
+	run_choice(ret);
+}
+
 void main()
 {
 	try
