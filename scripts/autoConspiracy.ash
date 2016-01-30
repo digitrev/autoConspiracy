@@ -253,19 +253,9 @@ void ControlPanel(){
 		run_choice(10);
 		return;
 	}
-	boolean[string, int] settings;
-	settings['Thermostat setting: CONSTANT MUTAGEN SPRAY', 9] = true;
-	settings['Re-enactment supply closet: UNLOCKED', 8] = true;
-	settings['Assmble-a-Bear kiosks: OPEN', 6] = true;
-	settings['Monkey food safety protocols: FLAUNTED', 4] = true;
-	settings['π sleep-hypnosis generators: ON', 2] = true;
-	settings['ALl-Ranchero FM station: COMPULSORY', 1] = true;
-	settings['Simian Ludovico Wednesdays: SCHEDULED', 3] = true;
-	settings['Shampoo Dispensers: CHILD-HOSTILE', 5] = true;
-	settings['Training algorithm: BROTHER V. BROTHER]', 7] = true;
 	int ret = 7;
-	foreach str, i in settings{
-		if (!ControlPanel.contains_text(str)){
+	for each i in $ints[9,2,4,6,8,1,3,5,7]{
+		if (!get_property("controlPanel" + i).to_boolean()){
 			ret = i;
 			break;
 		}
